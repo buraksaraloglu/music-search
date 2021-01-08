@@ -1,9 +1,0 @@
-{
-    "extends": [
-        "airbnb",
-        "airbnb/hooks"
-    ],
-    "rules": {
-        "object-curly-newline": "off"
-    }
-}

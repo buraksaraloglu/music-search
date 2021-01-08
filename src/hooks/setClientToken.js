@@ -1,17 +1,21 @@
 // import axios from 'axios';
 
-const setClientToken = async () => {
+const setClientToken = () => {
+  const responseToken = '1.YnVyYWtzYXJhbG9nbHU=.VLeJw80DMpXMxxgUJWW3Nrj1';
   //   try {
   //     await axios
   //       .post('https://musicdb.jobs.otsimo.com/createClient', {
-  //         headers: { 'content-type': 'application/json' },
-  //         data: { email: 'buraksaraloglu1@gmail.com' },
+  //         email: 'buraksaraloglu1@gmail.com',
   //       })
-  //       .then((res) => console.log(res.data))
+  //       .then((res) => {
+  //         responseToken = res.data;
+  //       })
   //       .catch((err) => console.error(err));
   //   } catch (error) {
   //     console.log(error);
   //   }
+
+  return responseToken;
 };
 
 export default setClientToken;
