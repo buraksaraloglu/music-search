@@ -18,7 +18,7 @@ const TrackDetails = ({
 	<div className={cx('c-track-card__details', className)}>
 		<div className='c-track-card__details__left'>
 			<h3>
-				<Link to={trackLink}>{trackName}</Link>
+				<a href={trackLink}>{trackName}</a>
 			</h3>
 			<div className='c-track-card__details__left__lower'>
 				<h4>

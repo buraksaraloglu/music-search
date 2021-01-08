@@ -21,9 +21,6 @@ const Home = () => {
 
 	const tracks = searchFetch(searchParams);
 
-	console.log(tracks);
-	// searchFetch(searchParams);
-
 	if (tracks?.data?.length > 0) {
 		return (
 			<Layout>
