@@ -34,7 +34,9 @@ export const searchFetch = (query) => {
 	useEffect(() => {
 		if (query !== undefined && authToken !== undefined) {
 			let response = searchMusic(query, authToken);
+			setContentStorage(response.musics);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [query]);
 };
 
