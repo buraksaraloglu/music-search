@@ -4,7 +4,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 
 import { useTokenContextValue } from '../contexts/TokenContext';
-import { useContentContextValue } from '../contexts/ContentContext';
+// import { useContentContextValue } from '../contexts/ContentContext';
 
 // import { findInContext } from './findInContext';
 
@@ -29,7 +29,7 @@ const searchMusic = (query, token) => {
 
 export const searchFetch = (query) => {
 	const { authToken } = useTokenContextValue();
-	const { setContentStorage } = useContentContextValue();
+	// const { setContentStorage } = useContentContextValue();
 
 	useEffect(() => {
 		if (query !== undefined && authToken !== undefined) {
