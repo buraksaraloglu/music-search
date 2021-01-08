@@ -1,8 +1,5 @@
 import React from 'react';
 
-// eslint-disable-next-line no-unused-vars
-import { useContentContextValue } from '../../contexts/ContentContext';
-
 import TrackSearchItem from '../../components/Tracks/TrackSearchItem';
 
 const TrackSearch = ({ tracks }) => (
@@ -17,9 +14,10 @@ const TrackSearch = ({ tracks }) => (
 					width={550}
 					height={270}
 					trackLink={`/album?=${track.album_id}`}
+					playLink={track.url}
 					trackName={track.name}
 					artistName={track.artist_name}
-					artistLink={`/artist/?=${track.artist_id}`}
+					artistLink={`/artist/${track.artist_name}?=${track.artist_id}`}
 					ccUrl={track.license_ccurl}
 					ccName={
 						track.license_ccurl === 'http://creativecommons.org/licenses/by/3.0/'

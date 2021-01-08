@@ -10,6 +10,7 @@ const TrackDetails = ({
 	className,
 	trackName,
 	trackLink,
+	playLink,
 	artistName,
 	artistLink,
 	ccName,
@@ -30,7 +31,7 @@ const TrackDetails = ({
 			</div>
 		</div>
 		<div className='c-track-card__details__right'>
-			<PlayButton />
+			<PlayButton trackUrl={playLink} />
 		</div>
 	</div>
 );

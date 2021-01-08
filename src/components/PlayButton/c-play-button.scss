@@ -1,28 +1,29 @@
 @import '../../styles/abstracts/index';
 
 .c-play-button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: pad(2xsmall);
-  border-radius: 52px;
-  background-color: $color-white;
-  color: $color-primary;
-  font-size: $g-font-size-xlarge;
-  line-height: 1;
-  transition: background-color 200ms ease;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: pad(2xsmall);
+	border-radius: 52px;
+	background-color: $color-white;
+	color: $color-primary;
+	font-size: $g-font-size-xlarge;
+	line-height: 1;
+	transition: background-color 200ms ease;
 
-  &:hover {
-    background-color: color-palette('primary', 100);
-  }
+	&:hover {
+		color: $color-primary !important;
+		background-color: color-palette('primary', 100);
+	}
 }
 
 .small-play {
-  font-size: $g-font-size-base;
-  color: $g-text-color;
-  background-color: color-palette('primary', 700);
+	font-size: $g-font-size-base;
+	color: $g-text-color;
+	background-color: color-palette('primary', 700);
 
-  &:hover {
-    background-color: color-palette('primary', 600);
-  }
+	&:hover {
+		background-color: color-palette('primary', 600);
+	}
 }

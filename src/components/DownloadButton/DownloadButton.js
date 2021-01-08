@@ -6,21 +6,16 @@ import { BiDownload } from 'react-icons/bi';
 
 import './c-download-button.scss';
 
-const DownloadButton = ({ className }) => (
-  // eslint-disable-next-line jsx-a11y/click-events-have-key-events
-  <div
-    className={cx('c-download-button', className)}
-    onClick={(event) => event.preventDefault()}
-    role="button"
-    tabIndex="0"
-  >
-    <BiDownload />
-  </div>
+const DownloadButton = ({ className, playLink }) => (
+	// eslint-disable-next-line jsx-a11y/click-events-have-key-events
+	<a href={playLink} className={cx('c-download-button', className)} target='_blank' download>
+		<BiDownload />
+	</a>
 );
 
 export default DownloadButton;
 
 DownloadButton.propTypes = {
-  // eslint-disable-next-line react/require-default-props
-  className: PropTypes.string,
+	// eslint-disable-next-line react/require-default-props
+	className: PropTypes.string,
 };

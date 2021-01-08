@@ -20,6 +20,7 @@ const TrackSearchItem = ({
 	height,
 	trackName,
 	trackLink,
+	playLink,
 	artistName,
 	artistLink,
 	ccName,
@@ -34,10 +35,11 @@ const TrackSearchItem = ({
 	>
 		<div className='c-card c-card--theme-blue c-track-card u-flex-basis-100%'>
 			<TrackImage imgSrc={imgSrc} imgAlt={imgAlt} width={width} height={height} />
-			<DownloadButton />
+			<DownloadButton playLink={playLink} />
 			<TrackDetails
 				trackName={trackName}
 				trackLink={trackLink}
+				playLink={playLink}
 				artistName={artistName}
 				artistLink={artistLink}
 				ccName={ccName}
