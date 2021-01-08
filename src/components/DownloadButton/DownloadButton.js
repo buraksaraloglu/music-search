@@ -8,7 +8,13 @@ import './c-download-button.scss';
 
 const DownloadButton = ({ className, playLink }) => (
 	// eslint-disable-next-line jsx-a11y/click-events-have-key-events
-	<a href={playLink} className={cx('c-download-button', className)} target='_blank' download>
+	<a
+		href={playLink}
+		className={cx('c-download-button', className)}
+		target='_blank'
+		rel='noreferrer'
+		download
+	>
 		<BiDownload />
 	</a>
 );
