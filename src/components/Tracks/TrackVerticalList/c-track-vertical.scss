@@ -1,0 +1,48 @@
+@import '../../../styles/abstracts/index';
+
+.c-track-vertical {
+  margin: gap(normal) auto;
+  list-style: none;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: gap(normal);
+    padding: pad(xsmall) 0;
+    border-bottom: 1px solid $g-border-color;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+
+    &__left,
+    &__right {
+      display: flex;
+      align-items: center;
+    }
+
+    &__left {
+      &__track-name {
+        margin: 0 1rem;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+    &__right {
+      .c-duration,
+      .c-licence {
+        margin-left: gap(small);
+      }
+
+      .c-licence,
+      .small-download {
+        color: $g-text-color;
+        &:hover {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@import '../../styles/abstracts/index';
+
+.c-album-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  .c-album-cover {
+    width: 250px;
+    height: 250px;
+    img {
+      background-position: center;
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+
+  .c-artist-details {
+    margin-left: gap(large);
+
+    &__album-name {
+      @include text-style('title');
+      margin-left: 0;
+      margin-right: 0;
+      line-height: 1.1;
+    }
+
+    &__artist-name {
+      @include text-style('small-title');
+      font-weight: 400;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+
+    .c-album-cover {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+    }
+
+    .c-artist-details {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+}

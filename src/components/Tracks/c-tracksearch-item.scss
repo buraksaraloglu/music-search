@@ -1,0 +1,113 @@
+@import '../../styles/abstracts/index';
+
+//
+// Checklist Card
+//
+
+.c-track-card {
+  position: relative;
+
+  $z-index-level-1: 1;
+  min-height: px-to-rem(224px);
+  border-radius: 0.75rem;
+  background-color: color-palette('primary', 700);
+
+  @include media-breakpoint-down(lg) {
+    min-height: auto;
+    max-height: px-to-rem(190px);
+  }
+
+  @include media-breakpoint-down(md) {
+    --c-card-padding-sides: #{pad(xsmall)};
+    max-height: px-to-rem(220px);
+  }
+
+  @include media-breakpoint-down(sm) {
+    --c-card-padding-sides: #{pad(xsmall)};
+    max-height: px-to-rem(360px);
+  }
+
+  //
+  // Elements
+  // -------------------------
+
+  &__cover-container {
+    height: 100%;
+    filter: brightness(60%);
+    transition: filter $g-transition-duration ease-in-out;
+
+    img {
+      @include img-fluid;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+  }
+
+  &__details {
+    position: absolute;
+    display: inline-flex;
+    width: -webkit-fill-available;
+    bottom: 1rem;
+    justify-content: space-between;
+    margin-left: gap(normal);
+    margin-right: gap(normal);
+    color: $g-text-muted-color;
+
+    &__left {
+      margin-right: auto;
+
+      &__lower {
+        display: flex;
+        align-items: center;
+        .c-licence {
+          margin-left: gap(xsmall);
+          color: color-palette('primary', 50);
+
+          &:hover {
+            color: color-palette('primary', 100);
+          }
+
+          &::before {
+            content: '•';
+            position: relative;
+            justify-content: center;
+            margin-right: gap(xsmall);
+            color: color-palette('primary', 100);
+          }
+        }
+      }
+    }
+
+    &__right {
+      margin: auto 0 0;
+    }
+
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    h4 {
+      margin-bottom: 0;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: unset;
+      a {
+        color: color-palette('primary', 50);
+        &:hover {
+          color: color-palette('primary', 100);
+        }
+      }
+    }
+  }
+
+  &__category {
+    position: relative;
+    z-index: $z-index-level-1;
+  }
+
+  &:hover {
+    .c-download-button {
+      display: flex;
+    }
+  }
+}

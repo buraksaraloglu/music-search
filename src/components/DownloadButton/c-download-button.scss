@@ -1,0 +1,29 @@
+@import '../../styles/abstracts/index';
+
+.c-download-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: pad(2xsmall);
+  border-radius: 52px;
+  color: $color-white;
+  font-size: $g-font-size-xlarge;
+  line-height: 1;
+  transition: color 200ms ease;
+
+  &:hover {
+    color: color-palette('primary', 100);
+  }
+}
+
+.small-download {
+  display: flex;
+  position: relative;
+  font-size: $g-font-size-medium;
+  padding: 0;
+  top: unset;
+  right: unset;
+}
