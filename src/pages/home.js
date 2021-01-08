@@ -14,19 +14,22 @@ const Home = () => {
 	const { search } = useLocation();
 
 	useEffect(() => {
-		if (search !== null) {
+		if (search !== null || search?.length > 0) {
 			setSearchParams(search.substring(3));
 		}
 	}, [search]);
 
-	searchFetch(searchParams);
+	const tracks = searchFetch(searchParams);
 
-	if (searchParams.length) {
+	console.log(tracks);
+	// searchFetch(searchParams);
+
+	if (tracks?.data?.length > 0) {
 		return (
 			<Layout>
 				<SearchInput id='search' className='p-header' value={searchParams} />
 				<h1 className='u-margin-bottom-0'>{searchParams}</h1>
-				<TrackSearch trackQuery={searchParams} />
+				<TrackSearch tracks={tracks.data} />
 			</Layout>
 		);
 	}
