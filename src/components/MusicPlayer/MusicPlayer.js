@@ -8,7 +8,7 @@ import './c-music-player.scss';
 
 const MusicPlayer = ({ className, trackSrc }) => (
 	<div className={cx('c-music-player', className)}>
-		<AudioPlayer autoPlay={false} src={trackSrc} />
+		<AudioPlayer autoPlay src={trackSrc} />
 	</div>
 );
 

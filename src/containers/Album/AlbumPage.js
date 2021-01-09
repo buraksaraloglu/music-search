@@ -1,139 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import AlbumHeader from '../../components/AlbumList/AlbumHeader';
 import TrackVerticalList from '../../components/Tracks/TrackVerticalList/TrackVerticalList';
 import TrackVerticalItem from '../../components/Tracks/TrackVerticalList/TrackVerticalItem';
 
-const AlbumPage = ({ albumQuery }) => {
-  const [albumSearch, setAlbumSearch] = useState('');
+const AlbumPage = ({ albumData, handlePlay, playingId }) => {
+	const albumInfo = albumData.album;
+	const tracks = albumData.musics;
 
-  // TODO: write a hook to fetch track list.
-  useEffect(() => {
-    setAlbumSearch(albumQuery);
-    return albumSearch;
-  }, [albumQuery, albumSearch]);
-
-  const trackSample = [
-    {
-      id: '1',
-      imgSrc: '/src/img/demo-image.jpg',
-      imgAlt: 'Image alt',
-      width: 500,
-      height: 300,
-      trackName: 'A Long Long Track Name',
-      trackLink: '/asd',
-      artistName: 'John Doe',
-      artistLink: '/asdg',
-      cLicence: 'cc',
-      duration: '3:36',
-    },
-    {
-      id: '2',
-      imgSrc: '/src/img/demo-image.jpg',
-      imgAlt: 'Image alt',
-      width: 500,
-      height: 300,
-      trackName: 'Track Name',
-      trackLink: '/asd',
-      artistName: 'John Doe',
-      artistLink: '/asdg',
-      cLicence: 'cc',
-      duration: '3:36',
-    },
-    {
-      id: '3',
-      imgSrc: '/src/img/demo-image.jpg',
-      imgAlt: 'Image alt',
-      width: 500,
-      height: 300,
-      trackName: 'Track Name',
-      trackLink: '/asd',
-      artistName: 'John Doe',
-      artistLink: '/asdg',
-      cLicence: 'cc',
-      duration: '3:36',
-    },
-    {
-      id: '4',
-      imgSrc: '/src/img/demo-image.jpg',
-      imgAlt: 'Image alt',
-      width: 500,
-      height: 300,
-      trackName: 'Track Name',
-      trackLink: '/asd',
-      artistName: 'John Doe',
-      artistLink: '/asdg',
-      cLicence: 'cc',
-      duration: '3:36',
-    },
-    {
-      id: '5',
-      imgSrc: '/src/img/demo-image.jpg',
-      imgAlt: 'Image alt',
-      width: 500,
-      height: 300,
-      trackName: 'Track Name',
-      trackLink: '/asd',
-      artistName: 'John Doe',
-      artistLink: '/asdg',
-      cLicence: 'cc',
-      duration: '3:36',
-    },
-    {
-      id: '6',
-      imgSrc: '/src/img/demo-image.jpg',
-      imgAlt: 'Image alt',
-      width: 500,
-      height: 300,
-      trackName: 'Track Name',
-      trackLink: '/asd',
-      artistName: 'John Doe',
-      artistLink: '/asdg',
-      cLicence: 'cc',
-      duration: '3:36',
-    },
-  ];
-
-  const albumSample = {
-    id: '1',
-    name: 'Sample Album Name w/ long tail trial',
-    artist_id: 'artistId',
-    artistName: 'John Doe',
-    images: '/src/img/demo-image.jpg',
-    added_at: '08/02/1999',
-  };
-
-  return (
-    <>
-      <div className="row u-margin-top-small">
-        <AlbumHeader
-          albumName={albumSample.name}
-          artistName={albumSample.artistName}
-          imgSrc={albumSample.images}
-          imgAlt={albumSample.name}
-          width={550}
-          height={270}
-        />
-      </div>
-      <TrackVerticalList>
-        {trackSample.map((track) => (
-          <TrackVerticalItem
-            key={track.id}
-            id={track.id}
-            trackName={track.trackName}
-            trackLink={track.trackLink}
-            cLicence={track.cLicence}
-            duration={track.duration}
-          />
-        ))}
-      </TrackVerticalList>
-    </>
-  );
+	return (
+		<>
+			<div className='row u-margin-top-small'>
+				<AlbumHeader
+					albumName={albumInfo.name}
+					artistName={tracks[0].artist_name}
+					imgSrc={albumInfo.images[2 || 0]}
+					imgAlt={albumInfo.name}
+					width={550}
+					height={270}
+				/>
+			</div>
+			<TrackVerticalList>
+				{tracks.map((track) => (
+					<TrackVerticalItem
+						key={track.id}
+						id={track.id}
+						isPlaying={playingId === track.id ? true : false}
+						trackName={track.name}
+						trackLink={track.url}
+						ccUrl={track.license_ccurl}
+						ccName={
+							track.license_ccurl === 'http://creativecommons.org/licenses/by/3.0/'
+								? 'cc by'
+								: 'cc by-sa'
+						}
+						duration={track.duration}
+						handlePlay={handlePlay}
+					/>
+				))}
+			</TrackVerticalList>
+		</>
+	);
 };
 
 export default AlbumPage;
 
 AlbumPage.propTypes = {
-  albumQuery: PropTypes.string.isRequired,
+	albumData: PropTypes.object.isRequired,
 };

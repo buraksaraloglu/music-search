@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import Layout from '../components/Layout';
+
 import SearchInput from '../containers/Search/SearchInput';
 import TrackSearch from '../containers/Tracks/TrackSearch';
 import MusicPlayer from '../components/MusicPlayer/MusicPlayer';

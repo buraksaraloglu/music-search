@@ -56,6 +56,12 @@
 		&__left {
 			margin-right: auto;
 
+			.c-search-track-title {
+				font-size: $g-font-size-large;
+
+				margin-bottom: 0;
+			}
+
 			&__lower {
 				display: flex;
 				align-items: center;

@@ -22,9 +22,9 @@ const TrackDetails = ({
 }) => (
 	<div className={cx('c-track-card__details', className)}>
 		<div className='c-track-card__details__left'>
-			<h3>
+			<h2 className='c-search-track-title'>
 				<Link to={`/album/${albumName}?=${albumId}`}>{trackName}</Link>
-			</h3>
+			</h2>
 			<div className='c-track-card__details__left__lower'>
 				<h4>
 					<Link to={artistLink}>{artistName}</Link>
