@@ -138,12 +138,10 @@ export const albumFetch = (query) => {
 			const cacheCheck = findInContext(`album_${query}`, contentStorage);
 
 			if (cacheCheck === undefined || cacheCheck?.query !== `album_${query}`) {
-				console.log('fetching');
 				let fetchData = searchAlbum(query, authToken);
 				setContentStorage([...contentStorage, { query: `album_${query}`, data: fetchData }]);
 				setResponse({ query: query, data: fetchData });
 			} else {
-				console.log('from cache');
 				setResponse(cacheCheck);
 			}
 		}

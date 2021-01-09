@@ -2,29 +2,35 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 
+import { usePlayerContextValue } from '../contexts/PlayerContext';
+
 import Layout from '../components/Layout';
 
 import SearchInput from '../containers/Search/SearchInput';
 import AlbumPage from '../containers/Album/AlbumPage';
-import MusicPlayer from '../components/MusicPlayer/MusicPlayer';
 
 import { albumFetch } from '../hooks/albumFetch';
 
 const Album = () => {
 	const [albumParams, setAlbumParams] = useState('');
-	const [playingTrack, setPlayingTrack] = useState('');
-	const [playingTrackId, setPlayingTrackId] = useState('');
+
+	const {
+		currentTrack,
+		setCurrentTrack,
+		currentTrackId,
+		setCurrentTrackId,
+	} = usePlayerContextValue();
 
 	const { search } = useLocation();
 	const { name } = useParams();
 
 	const handlePlay = (track, trackId) => {
-		if (track !== playingTrack) {
-			setPlayingTrack(track);
-			setPlayingTrackId(trackId);
+		if (track !== currentTrack) {
+			setCurrentTrack(track);
+			setCurrentTrackId(trackId);
 		} else {
-			setPlayingTrack('');
-			setPlayingTrackId('');
+			setCurrentTrack('');
+			setCurrentTrackId('');
 		}
 	};
 
@@ -43,11 +49,10 @@ const Album = () => {
 					<SearchInput id='search' className='p-header' value={name} />
 					<AlbumPage
 						albumData={album}
-						playingId={playingTrackId}
+						playingId={currentTrackId}
 						handlePlay={(track, trackId) => handlePlay(track, trackId)}
 					/>
 				</Layout>
-				{playingTrack && <MusicPlayer trackSrc={playingTrack} />}
 			</>
 		);
 	}
