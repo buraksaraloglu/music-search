@@ -7,7 +7,6 @@ const PlayerContextProvider = ({ children }) => {
 	const [currentTrack, setCurrentTrack] = useState('');
 	const [currentTrackId, setCurrentTrackId] = useState('');
 
-	console.log('context track: ', currentTrack);
 	return (
 		<PlayerContext.Provider
 			value={{ currentTrack, setCurrentTrack, currentTrackId, setCurrentTrackId }}

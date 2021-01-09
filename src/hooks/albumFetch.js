@@ -125,6 +125,7 @@ const searchAlbum = (query, token) => {
 	// } catch (error) {
 	// 	throw new Error(error);
 	// }
+
 	return response;
 };
 

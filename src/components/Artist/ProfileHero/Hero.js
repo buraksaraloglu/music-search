@@ -4,19 +4,20 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-import AlbumCover from '../Artist/AlbumHero/AlbumCover';
-import ArtistDetails from '../Artist/AlbumHero/ArtistDetails';
+import HeaderBackground from './Items/HeaderBackground';
+import HeaderDetails from './Items/HeaderDetails';
 
-import './c-album-header.scss';
+import './c-artist-header.scss';
 
-const AlbumHeader = ({ className, albumName, artistName, imgSrc, imgAlt, width, height }) => (
-  <div className={cx('c-album-header', className)}>
-    <AlbumCover imgSrc={imgSrc} imgAlt={imgAlt} width={width} height={height} />
-    <ArtistDetails albumName={albumName} artistName={artistName} />
-  </div>
+const ArtistHero = ({ className, artistName, imgSrc, imgAlt, width, height }) => (
+	<div className={cx('c-artist-header', className)}>
+		<HeaderBackground imgSrc={imgSrc} imgAlt={imgAlt} width={width} height={height}>
+			<HeaderDetails artistName={artistName} />
+		</HeaderBackground>
+	</div>
 );
 
-export default AlbumHeader;
+export default ArtistHero;
 
 // AlbumHeader.propTypes = {
 //   className: PropTypes.string,

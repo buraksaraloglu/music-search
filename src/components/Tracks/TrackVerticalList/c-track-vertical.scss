@@ -28,6 +28,17 @@
 				margin: 0 1rem;
 				font-weight: 400;
 				font-size: 16px;
+				cursor: pointer;
+			}
+
+			&:hover {
+				&__track-name {
+					color: $color-white;
+				}
+
+				.small-play {
+					background-color: $color-white;
+				}
 			}
 		}
 		&__right {

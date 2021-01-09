@@ -7,7 +7,8 @@ import { usePlayerContextValue } from '../contexts/PlayerContext';
 import Layout from '../components/Layout';
 
 import SearchInput from '../containers/Search/SearchInput';
-import AlbumPage from '../containers/Album/AlbumPage';
+import AlbumHero from '../containers/Album/AlbumHero';
+import TrackVertical from '../containers/Tracks/TrackVertical';
 
 import { albumFetch } from '../hooks/albumFetch';
 
@@ -47,7 +48,8 @@ const Album = () => {
 			<>
 				<Layout>
 					<SearchInput id='search' className='p-header' value={name} />
-					<AlbumPage
+					<AlbumHero albumData={album} />
+					<TrackVertical
 						albumData={album}
 						playingId={currentTrackId}
 						handlePlay={(track, trackId) => handlePlay(track, trackId)}
