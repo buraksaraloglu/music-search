@@ -3,7 +3,7 @@ export const findInContext = (query, array) => {
 		if (queryItem.query === query) {
 			return queryItem;
 		} else {
-			return [];
+			return undefined;
 		}
 	});
 };

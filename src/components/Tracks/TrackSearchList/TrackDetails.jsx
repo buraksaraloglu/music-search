@@ -23,7 +23,7 @@ const TrackDetails = ({
 	<div className={cx('c-track-card__details', className)}>
 		<div className='c-track-card__details__left'>
 			<h3>
-				<a href={`/album/${albumName}?=${albumId}`}>{trackName}</a>
+				<Link to={`/album/${albumName}?=${albumId}`}>{trackName}</Link>
 			</h3>
 			<div className='c-track-card__details__left__lower'>
 				<h4>
@@ -43,11 +43,10 @@ const TrackDetails = ({
 export default TrackDetails;
 
 TrackDetails.propTypes = {
-	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
+	trackLink: PropTypes.string,
 	id: PropTypes.string.isRequired,
 	trackName: PropTypes.string.isRequired,
-	trackLink: PropTypes.string.isRequired,
 	artistName: PropTypes.string.isRequired,
 	artistLink: PropTypes.string.isRequired,
 	ccName: PropTypes.string.isRequired,

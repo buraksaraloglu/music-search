@@ -17,5 +17,5 @@ export default PlayButton;
 PlayButton.propTypes = {
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
-	trackUrl: PropTypes.string.isRequired,
+	trackUrl: PropTypes.string,
 };

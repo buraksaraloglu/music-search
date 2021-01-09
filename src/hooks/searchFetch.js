@@ -124,7 +124,7 @@ export const searchFetch = (query) => {
 		if (query && authToken) {
 			const cacheCheck = findInContext(query, contentStorage);
 
-			if (cacheCheck === undefined && cacheCheck?.query !== query) {
+			if (cacheCheck === undefined || cacheCheck?.query !== query) {
 				let fetchData = searchMusic(query, authToken);
 				setContentStorage([...contentStorage, { query: query, data: fetchData }]);
 				setResponse({ query: query, data: fetchData });

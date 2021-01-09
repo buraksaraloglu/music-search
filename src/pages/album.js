@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
 import Layout from '../components/Layout';
 import SearchInput from '../containers/Search/SearchInput';
@@ -10,7 +10,8 @@ import AlbumPage from '../containers/Album/AlbumPage';
 const Album = () => {
 	const [albumParams, setAlbumParams] = useState('');
 
-	const { name, search } = useLocation();
+	const { search } = useLocation();
+	const { name } = useParams();
 
 	useEffect(() => {
 		if (search !== null || search?.length > 0) {
