@@ -11,6 +11,7 @@
 	font-size: $g-font-size-xlarge;
 	line-height: 1;
 	transition: background-color 200ms ease;
+	cursor: pointer;
 
 	&:hover {
 		color: $color-primary !important;

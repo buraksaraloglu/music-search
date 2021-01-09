@@ -7,20 +7,20 @@
 //
 
 $color-palette-primary: (
-  50: #e7efff,
-  100: #c4cbd8,
-  200: #a2a5ad,
-  300: #4f5b7d,
-  400: #3b445e,
-  500: #31394f,
-  600: #232939,
-  700: #181c27,
-  800: #101013,
-  900: #09090a,
+	50: #e7efff,
+	100: #c4cbd8,
+	200: #a2a5ad,
+	300: #4f5b7d,
+	400: #3b445e,
+	500: #31394f,
+	600: #232939,
+	700: #1c1c20,
+	800: #101013,
+	900: #09090a,
 );
 
 $g-color-palettes: (
-  'primary': $color-palette-primary,
+	'primary': $color-palette-primary,
 );
 
 //
@@ -84,6 +84,7 @@ $color-info: $color-robins-egg-blue;
 // -------------------------
 
 $g-body-background-color: color-palette('primary', 800) !default;
+$g-body-player-color: color-palette('primary', 700) !default;
 $g-text-color: $color-lynch !default;
 $g-text-color-light: color-palette('primary', 50) !default;
 $g-headings-color: $g-text-color-light !default;
@@ -94,44 +95,44 @@ $g-text-muted-color: color-palette('primary', 300) !default;
 $g-hr-border-color: $g-border-color !default;
 
 $g-theme-colors: (
-  'default': (
-    idle: color-palette('primary', 700),
-    hover: color-palette('primary', 500),
-  ),
-  'blue': (
-    idle: $color-blue,
-    hover: $color-dark-blue,
-  ),
-  'dodger-blue': (
-    idle: $color-dodger-blue,
-    hover: $color-denim,
-  ),
-  'electric-violet': (
-    idle: $color-electric-violet,
-    hover: $color-electric-violet-dark-1,
-  ),
-  'fuzzy-wuzzy-brown': (
-    idle: $color-fuzzy-wuzzy-brown,
-    hover: $color-medium-carmine,
-  ),
-  'rose': (
-    idle: $color-rose,
-    hover: $color-razzmatazz,
-  ),
-  'purple-heart': (
-    idle: $color-purple-heart,
-    hover: $color-blue-gem,
-  ),
-  'purple': (
-    idle: $color-purple,
-    hover: $color-scarlet-gum,
-  ),
-  'clementine': (
-    idle: $color-clementine,
-    hover: $color-tenn,
-  ),
-  'gossamer': (
-    idle: $color-gossamer,
-    hover: $color-salem,
-  ),
+	'default': (
+		idle: color-palette('primary', 700),
+		hover: color-palette('primary', 500),
+	),
+	'blue': (
+		idle: $color-blue,
+		hover: $color-dark-blue,
+	),
+	'dodger-blue': (
+		idle: $color-dodger-blue,
+		hover: $color-denim,
+	),
+	'electric-violet': (
+		idle: $color-electric-violet,
+		hover: $color-electric-violet-dark-1,
+	),
+	'fuzzy-wuzzy-brown': (
+		idle: $color-fuzzy-wuzzy-brown,
+		hover: $color-medium-carmine,
+	),
+	'rose': (
+		idle: $color-rose,
+		hover: $color-razzmatazz,
+	),
+	'purple-heart': (
+		idle: $color-purple-heart,
+		hover: $color-blue-gem,
+	),
+	'purple': (
+		idle: $color-purple,
+		hover: $color-scarlet-gum,
+	),
+	'clementine': (
+		idle: $color-clementine,
+		hover: $color-tenn,
+	),
+	'gossamer': (
+		idle: $color-gossamer,
+		hover: $color-salem,
+	),
 );

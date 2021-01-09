@@ -10,7 +10,7 @@ import AlbumPage from '../containers/Album/AlbumPage';
 const Album = () => {
 	const [albumParams, setAlbumParams] = useState('');
 
-	const { search } = useLocation();
+	const { name, search } = useLocation();
 
 	useEffect(() => {
 		if (search !== null || search?.length > 0) {
@@ -21,7 +21,7 @@ const Album = () => {
 	if (albumParams.length) {
 		return (
 			<Layout>
-				<SearchInput id='search' className='p-header' value={albumParams} />
+				<SearchInput id='search' className='p-header' value={name} />
 				<AlbumPage albumQuery={albumParams} />
 			</Layout>
 		);

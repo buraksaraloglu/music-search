@@ -7,31 +7,35 @@ import PlayButton from '../../PlayButton/PlayButton';
 
 // eslint-disable-next-line object-curly-newline
 const TrackDetails = ({
+	id,
 	className,
 	trackName,
-	trackLink,
 	playLink,
+	albumId,
+	albumName,
 	artistName,
 	artistLink,
 	ccName,
 	ccUrl,
+	handlePlay,
+	isPlaying,
 }) => (
 	<div className={cx('c-track-card__details', className)}>
 		<div className='c-track-card__details__left'>
 			<h3>
-				<a href={trackLink}>{trackName}</a>
+				<a href={`/album/${albumName}?=${albumId}`}>{trackName}</a>
 			</h3>
 			<div className='c-track-card__details__left__lower'>
 				<h4>
 					<Link to={artistLink}>{artistName}</Link>
 				</h4>
-				<Link className='c-licence' to={ccUrl}>
+				<a className='c-licence' href={ccUrl} rel='noreferrer' target='_blank'>
 					{ccName}
-				</Link>
+				</a>
 			</div>
 		</div>
 		<div className='c-track-card__details__right'>
-			<PlayButton trackUrl={playLink} />
+			<PlayButton id={id} isPlaying={isPlaying} handlePlay={handlePlay} trackUrl={playLink} />
 		</div>
 	</div>
 );
@@ -41,6 +45,7 @@ export default TrackDetails;
 TrackDetails.propTypes = {
 	// eslint-disable-next-line react/require-default-props
 	className: PropTypes.string,
+	id: PropTypes.string.isRequired,
 	trackName: PropTypes.string.isRequired,
 	trackLink: PropTypes.string.isRequired,
 	artistName: PropTypes.string.isRequired,

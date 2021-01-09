@@ -2,15 +2,14 @@ import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 
-import { RiPlayFill } from 'react-icons/ri';
+import { RiPlayFill, RiPauseLine } from 'react-icons/ri';
 
 import './c-play-button.scss';
 
-const PlayButton = ({ className, trackUrl }) => (
-	// eslint-disable-next-line jsx-a11y/click-events-have-key-events
-	<a className={cx('c-play-button', className)} href={trackUrl}>
-		<RiPlayFill />
-	</a>
+const PlayButton = ({ id, className, trackUrl, handlePlay, isPlaying }) => (
+	<div className={cx('c-play-button', className)} onClick={() => handlePlay(trackUrl, id)}>
+		{isPlaying ? <RiPauseLine /> : <RiPlayFill />}
+	</div>
 );
 
 export default PlayButton;

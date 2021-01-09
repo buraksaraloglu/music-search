@@ -19,12 +19,15 @@ const TrackSearchItem = ({
 	width,
 	height,
 	trackName,
-	trackLink,
 	playLink,
+	isPlaying,
+	albumId,
+	albumName,
 	artistName,
 	artistLink,
 	ccName,
 	ccUrl,
+	handlePlay,
 }) => (
 	<div
 		className={cx(
@@ -37,13 +40,17 @@ const TrackSearchItem = ({
 			<TrackImage imgSrc={imgSrc} imgAlt={imgAlt} width={width} height={height} />
 			<DownloadButton playLink={playLink} />
 			<TrackDetails
+				id={id}
 				trackName={trackName}
-				trackLink={trackLink}
 				playLink={playLink}
+				albumId={albumId}
+				albumName={albumName}
 				artistName={artistName}
 				artistLink={artistLink}
+				handlePlay={handlePlay}
 				ccName={ccName}
 				ccUrl={ccUrl}
+				isPlaying={isPlaying}
 			/>
 		</div>
 	</div>

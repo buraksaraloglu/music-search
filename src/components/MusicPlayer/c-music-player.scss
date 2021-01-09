@@ -1,0 +1,22 @@
+@import '../../styles/abstracts/index';
+
+$rhap_time-color: #fff;
+
+.c-music-player {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	background-color: $g-body-player-color;
+
+	.rhap_container {
+		max-width: 1168px;
+		width: 100%;
+		margin: 0 auto;
+		background-color: inherit;
+		box-shadow: none;
+	}
+
+	.rhap_time {
+		color: #868686;
+	}
+}
