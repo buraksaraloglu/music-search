@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { usePlayerContextValue } from '../contexts/PlayerContext';
 
@@ -42,18 +43,23 @@ const Home = () => {
 
 	if (tracks?.musics?.length !== undefined) {
 		return (
-			<Layout>
-				<SearchInput id='search' className='p-header' value={searchParams} />
-				<h1 className='u-margin-bottom-0'>{searchParams}</h1>
-				<TrackSearch
-					tracks={tracks.musics}
-					playingId={currentTrackId}
-					handlePlay={(track, trackId) => handlePlay(track, trackId)}
-				/>
-			</Layout>
+			<>
+				<Helmet>
+					<title>{searchParams} - Burak Saraloglu</title>
+				</Helmet>
+				<Layout>
+					<SearchInput id='search' className='p-header' value={searchParams} />
+					<h1 className='u-margin-bottom-0'>{searchParams}</h1>
+					<TrackSearch
+						tracks={tracks.musics}
+						playingId={currentTrackId}
+						handlePlay={(track, trackId) => handlePlay(track, trackId)}
+					/>
+				</Layout>
+			</>
 		);
 	}
-	
+
 	if (tracks?.musics === null && searchParams.length > 0) {
 		<Layout>
 			<SearchInput id='search' className='p-header' value={searchParams} />

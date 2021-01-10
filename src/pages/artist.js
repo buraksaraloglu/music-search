@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { usePlayerContextValue } from '../contexts/PlayerContext';
 
@@ -48,18 +49,23 @@ const Artist = () => {
 		artistDetails = artist.artist;
 	}
 
-	if (artist !== undefined) {
+	if (artistDetails?.id !== undefined) {
 		return (
-			<Layout>
-				<SearchInput id='search' className='p-header' value={artistDetails.name} />
-				<ArtistHeroContainer artistData={artist} />
-				<TrackVertical
-					albumData={artist}
-					playingId={currentTrackId}
-					handlePlay={(track, trackId) => handlePlay(track, trackId)}
-				/>
-				<VerticalCardList items={artist} title='Albums' />
-			</Layout>
+			<>
+				<Helmet>
+					<title>{artistDetails.name} - Burak Saraloglu</title>
+				</Helmet>
+				<Layout>
+					<SearchInput id='search' className='p-header' value={artistDetails.name} />
+					<ArtistHeroContainer artistData={artist} />
+					<TrackVertical
+						albumData={artist}
+						playingId={currentTrackId}
+						handlePlay={(track, trackId) => handlePlay(track, trackId)}
+					/>
+					<VerticalCardList items={artist} title='Albums' />
+				</Layout>
+			</>
 		);
 	}
 

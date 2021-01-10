@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { usePlayerContextValue } from '../contexts/PlayerContext';
 
@@ -45,6 +46,9 @@ const Album = () => {
 	if (album?.album?.id !== undefined) {
 		return (
 			<>
+				<Helmet>
+					<title>{album.album.name} - Burak Saraloglu</title>
+				</Helmet>
 				<Layout>
 					<SearchInput id='search' className='p-header' value={album.album.name} />
 					<AlbumHero albumData={album} />
