@@ -41,6 +41,16 @@
 			object-fit: cover;
 			border-radius: 0.75rem;
 		}
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-size: 100% 100%;
+			background: linear-gradient(0deg, rgba(16, 16, 19, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+		}
 	}
 
 	&__details {
@@ -54,18 +64,30 @@
 		color: $g-text-muted-color;
 
 		&__left {
+			position: relative;
 			margin-right: auto;
+			width: 80%;
 
 			.c-search-track-title {
+				width: 100%;
+				margin-bottom: 0;
 				font-size: $g-font-size-large;
 
-				margin-bottom: 0;
+				a {
+					display: block;
+					width: 100%;
+					text-transform: none;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					overflow: hidden;
+				}
 			}
 
 			&__lower {
 				display: flex;
 				align-items: center;
 				.c-licence {
+					width: max-content;
 					margin-left: gap(xsmall);
 					color: color-palette('primary', 50);
 

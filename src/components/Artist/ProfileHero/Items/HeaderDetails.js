@@ -4,7 +4,8 @@ import cx from 'classnames';
 
 const HeaderDetails = ({ className, artistName }) => (
 	<div className={cx('c-artist-details', className)}>
-		<h1 className='u-margin-ends-small c-artist-details__name'>{artistName}</h1>
+		<h1 className='u-margin-top-small c-artist-details__name'>{artistName}</h1>
+		<span>Artist</span>
 	</div>
 );
 

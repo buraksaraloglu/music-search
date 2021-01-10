@@ -41,7 +41,7 @@ const TrackVerticalItem = ({
 			</div>
 			<div className='c-track-vertical__item__right'>
 				<DownloadButton playLink={trackLink} className='small-download' />
-				<a href={ccUrl} className='c-licence'>
+				<a href={ccUrl} className='c-licence' target='_blank' rel='noreferrer'>
 					{ccName}
 				</a>
 				<span className='c-duration'>{stringDuration}</span>

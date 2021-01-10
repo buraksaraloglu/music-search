@@ -40,18 +40,26 @@ const Home = () => {
 
 	const tracks = searchFetch(searchParams);
 
-	if (tracks?.data?.length > 0) {
+	if (tracks?.musics?.length !== undefined) {
 		return (
 			<Layout>
 				<SearchInput id='search' className='p-header' value={searchParams} />
 				<h1 className='u-margin-bottom-0'>{searchParams}</h1>
 				<TrackSearch
-					tracks={tracks.data}
+					tracks={tracks.musics}
 					playingId={currentTrackId}
 					handlePlay={(track, trackId) => handlePlay(track, trackId)}
 				/>
 			</Layout>
 		);
+	}
+	
+	if (tracks?.musics === null && searchParams.length > 0) {
+		<Layout>
+			<SearchInput id='search' className='p-header' value={searchParams} />
+			<h1 className='u-margin-bottom-0'>{searchParams}</h1>
+			<h2>This song has not found. Maybe try another song?</h2>
+		</Layout>;
 	}
 	return (
 		<Layout className='home-page'>

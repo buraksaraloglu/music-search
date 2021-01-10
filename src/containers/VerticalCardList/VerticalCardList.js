@@ -4,7 +4,6 @@ import VerticalCardContainer from '../../components/VerticalCard/VerticalCardLis
 import VerticalCard from '../../components/VerticalCard/VerticalCard';
 
 const VerticalCardList = ({ items, title }) => {
-	console.log(items);
 	return (
 		<div className='row u-margin-top-small u-margin-bottom-medium'>
 			<VerticalCardContainer>
