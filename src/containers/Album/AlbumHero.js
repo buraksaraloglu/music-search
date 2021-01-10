@@ -10,6 +10,7 @@ const AlbumHero = ({ albumData }) => {
 	return (
 		<div className='row u-margin-top-small'>
 			<AlbumHeader
+				id={albumInfo.artist_id}
 				albumName={albumInfo.name}
 				artistName={tracks[0].artist_name}
 				imgSrc={albumInfo.images[2 || 0]}

@@ -20,7 +20,7 @@ const TrackSearch = ({ tracks, handlePlay, playingId }) => {
 						albumName={track.album_name}
 						albumId={track.album_id}
 						artistName={track.artist_name}
-						artistLink={`/artist/${track.artist_name}?=${track.artist_id}`}
+						artistLink={`/artist/${track.artist_id}`}
 						ccUrl={track.license_ccurl}
 						handlePlay={handlePlay}
 						ccName={

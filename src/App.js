@@ -19,8 +19,8 @@ const App = () => {
 					<Router>
 						<Switch>
 							<Route exact path='/' component={Home} />
-							<Route exact path='/album/:name' component={Album} />
-							<Route exact path='/artist/:name' component={Artist} />
+							<Route exact path='/album/:id' component={Album} />
+							<Route exact path='/artist/:id' component={Artist} />
 						</Switch>
 					</Router>
 					<MusicPlayerContainer />

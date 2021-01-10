@@ -3,17 +3,18 @@ import PropTypes from 'prop-types';
 
 import ArtistHero from '../../components/Artist/ProfileHero/Hero';
 
-const TrackVertical = ({ albumData }) => {
-	const albumInfo = albumData.album;
-	const tracks = albumData.musics;
+const ArtistHeroContainer = ({ artistData }) => {
+	const artistMeta = artistData.artist;
+	const albumMeta = artistData.albums;
+	const trackMeta = artistData.musics;
 
 	return (
 		<div className='row u-margin-top-small'>
 			<ArtistHero
-				albumName={albumInfo.name}
-				artistName={tracks[0].artist_name}
-				imgSrc={albumInfo.images[2 || 0]}
-				imgAlt={albumInfo.name}
+				albumName={artistMeta.name}
+				artistName={trackMeta[0]?.artist_name}
+				imgSrc={albumMeta[0].images[2 || 0]}
+				imgAlt={artistMeta.name}
 				width={550}
 				height={270}
 			/>
@@ -21,8 +22,8 @@ const TrackVertical = ({ albumData }) => {
 	);
 };
 
-export default TrackVertical;
+export default ArtistHeroContainer;
 
-TrackVertical.propTypes = {
-	albumData: PropTypes.object.isRequired,
+ArtistHeroContainer.propTypes = {
+	artistData: PropTypes.object.isRequired,
 };

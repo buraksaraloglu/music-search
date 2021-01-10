@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 import PlayButton from '../../PlayButton/PlayButton';
 
-// eslint-disable-next-line object-curly-newline
 const TrackDetails = ({
 	id,
 	className,
@@ -23,7 +22,7 @@ const TrackDetails = ({
 	<div className={cx('c-track-card__details', className)}>
 		<div className='c-track-card__details__left'>
 			<h2 className='c-search-track-title'>
-				<Link to={`/album/${albumName}?=${albumId}`}>{trackName}</Link>
+				<Link to={`/album/${albumId}`}>{trackName}</Link>
 			</h2>
 			<div className='c-track-card__details__left__lower'>
 				<h4>

@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
-const ArtistDetails = ({ className, albumName, artistName }) => (
+const ArtistDetails = ({ id, className, albumName, artistName }) => (
 	<div className={cx('c-artist-details', className)}>
 		<h1 className='u-margin-ends-small c-artist-details__album-name'>{albumName}</h1>
-		<h2 className='c-artist-details__artist-name'>{artistName}</h2>
+		<Link to={`/artist/${id}`} className='c-artist-details__artist-name'>
+			{artistName}
+		</Link>
 	</div>
 );
 

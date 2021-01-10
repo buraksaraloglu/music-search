@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { usePlayerContextValue } from '../contexts/PlayerContext';
 
@@ -13,7 +13,7 @@ import TrackVertical from '../containers/Tracks/TrackVertical';
 import { albumFetch } from '../hooks/albumFetch';
 
 const Album = () => {
-	const [albumParams, setAlbumParams] = useState('');
+	const [albumId, setAlbumId] = useState('');
 
 	const {
 		currentTrack,
@@ -22,8 +22,7 @@ const Album = () => {
 		setCurrentTrackId,
 	} = usePlayerContextValue();
 
-	const { search } = useLocation();
-	const { name } = useParams();
+	const { id } = useParams();
 
 	const handlePlay = (track, trackId) => {
 		if (track !== currentTrack) {
@@ -35,19 +34,19 @@ const Album = () => {
 		}
 	};
 
-	useEffect(() => {
-		if (search !== null || search?.length > 0) {
-			setAlbumParams(search.substring(3));
-		}
-	}, [search]);
+	const album = albumFetch(albumId);
 
-	const album = albumFetch(albumParams);
+	useEffect(() => {
+		if (id !== undefined) {
+			setAlbumId(id);
+		}
+	}, [id]);
 
 	if (album?.album?.id !== undefined) {
 		return (
 			<>
 				<Layout>
-					<SearchInput id='search' className='p-header' value={name} />
+					<SearchInput id='search' className='p-header' value={album.album.name} />
 					<AlbumHero albumData={album} />
 					<TrackVertical
 						albumData={album}
@@ -62,7 +61,7 @@ const Album = () => {
 	return (
 		<Layout>
 			<h2 className='err-header'>Please search a song or album</h2>
-			<SearchInput id='search' className='p-header' value={albumParams} />
+			<SearchInput id='search' className='p-header' value={id} />
 		</Layout>
 	);
 };

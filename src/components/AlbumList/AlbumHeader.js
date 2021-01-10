@@ -9,11 +9,11 @@ import ArtistDetails from '../Artist/AlbumHero/ArtistDetails';
 
 import './c-album-header.scss';
 
-const AlbumHeader = ({ className, albumName, artistName, imgSrc, imgAlt, width, height }) => (
-  <div className={cx('c-album-header', className)}>
-    <AlbumCover imgSrc={imgSrc} imgAlt={imgAlt} width={width} height={height} />
-    <ArtistDetails albumName={albumName} artistName={artistName} />
-  </div>
+const AlbumHeader = ({ id, className, albumName, artistName, imgSrc, imgAlt, width, height }) => (
+	<div className={cx('c-album-header', className)}>
+		<AlbumCover imgSrc={imgSrc} imgAlt={imgAlt} width={width} height={height} />
+		<ArtistDetails id={id} albumName={albumName} artistName={artistName} />
+	</div>
 );
 
 export default AlbumHeader;

@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { usePlayerContextValue } from '../contexts/PlayerContext';
 
 import Layout from '../components/Layout';
 import SearchInput from '../containers/Search/SearchInput';
-import ArtistHero from '../containers/Artist/ArtistHero';
+import ArtistHeroContainer from '../containers/Artist/ArtistHero';
 import TrackVertical from '../containers/Tracks/TrackVertical';
+import VerticalCardList from '../containers/VerticalCardList/VerticalCardList';
 
-import { albumFetch } from '../hooks/albumFetch';
+import { artistFetch } from '../hooks/artistFetch';
 
 const Artist = () => {
 	const [artistParams, setArtistParams] = useState('');
@@ -21,8 +22,7 @@ const Artist = () => {
 		setCurrentTrackId,
 	} = usePlayerContextValue();
 
-	const { search } = useLocation();
-	const { name } = useParams();
+	const { id } = useParams();
 
 	const handlePlay = (track, trackId) => {
 		if (track !== currentTrack) {
@@ -35,23 +35,30 @@ const Artist = () => {
 	};
 
 	useEffect(() => {
-		if (search !== null || search?.length > 0) {
-			setArtistParams(search.substring(3));
+		if (id !== undefined) {
+			setArtistParams(id);
 		}
-	}, [search]);
+	}, [id]);
 
-	const album = albumFetch(artistParams);
+	const artist = artistFetch(artistParams);
 
-	if (album?.album?.id !== undefined) {
+	let artistDetails = {};
+
+	if (artist !== undefined) {
+		artistDetails = artist.artist;
+	}
+
+	if (artist !== undefined) {
 		return (
 			<Layout>
-				<SearchInput id='search' className='p-header' value={name} />
-				<ArtistHero albumData={album} />
+				<SearchInput id='search' className='p-header' value={artistDetails.name} />
+				<ArtistHeroContainer artistData={artist} />
 				<TrackVertical
-					albumData={album}
+					albumData={artist}
 					playingId={currentTrackId}
 					handlePlay={(track, trackId) => handlePlay(track, trackId)}
 				/>
+				<VerticalCardList items={artist} title='Albums' />
 			</Layout>
 		);
 	}
